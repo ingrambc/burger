@@ -1,5 +1,5 @@
 CREATE DATABASE burgersDB;
-USE cat_db;
+USE burgersDB;
 
 CREATE TABLE burgers
 (
