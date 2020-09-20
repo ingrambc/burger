@@ -16,7 +16,7 @@ var orm = {
 
   insertOne: function(tableName, cols, values, cb){
     let queryStr = "INSERT INTO "+tableName+" ("+cols.toString()+") ";
-        queryStr+= "VALUES ("+values.toString()+")";
+        queryStr+= "VALUES (\""+values.toString()+"\");";
     connection.query(queryStr, function(err, result){
       if(err) throw err;
       cb(result);  
@@ -25,7 +25,7 @@ var orm = {
 
   updateOne: function(tableName, col, value, cond, cb){
     let queryStr = "UPDATE "+tableName+" SET "+col+" = "+value;
-        queryStr+= " WHERE "+cond;
+        queryStr+= " WHERE "+cond+";";
     connection.query(queryStr, function(err, result){
       if(err) throw err;
       cb(result);

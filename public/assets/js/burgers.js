@@ -5,7 +5,7 @@ $(function() {
     var devoured = {devoured: true};
 
     // Send the PUT request.
-    $.ajax("/api/cats/" + id, {
+    $.ajax("/api/burgers/" + id, {
       type: "PUT",
       data: devoured
     }).then(
@@ -18,18 +18,19 @@ $(function() {
   });
 
   $(".create-form").on("submit", function(event) {
+    console.log("Entered submit Click")
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var name = {name: $("#name").val().trim()};
+    var dataBody = {name: $("#burgName").val().trim()};
 
     // Send the POST request.
-    $.ajax("/api/cats", {
+    $.ajax("/api/burgers", {
       type: "POST",
-      data: name
+      data: dataBody
     }).then(
       function() {
-        console.log("New Brurger created");
+        console.log("New Burger created");
         // Reload the page to get the updated list
         location.reload();
       }

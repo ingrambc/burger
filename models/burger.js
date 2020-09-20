@@ -15,9 +15,12 @@ var burger = {
   },//end of insertOne
 
   updateOne: function(col, value, cond, cb){
-    orm.updateOne("burgers", col, value, function(res){
+    orm.updateOne("burgers", col, value, cond, function(res){
       cb(res);
     })
   },//end of updateOne
 
 }//end of burger
+
+//Export burger
+module.exports = burger;
