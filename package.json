@@ -1,0 +1,20 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "Node.js app using mysql database",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ingrambc/burger.git"
+  },
+  "author": "Brian Ingram",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ingrambc/burger/issues"
+  },
+  "homepage": "https://github.com/ingrambc/burger#readme"
+}
