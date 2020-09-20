@@ -28,3 +28,6 @@ router.put("/api/burgers/:id", function(req, res){
     res.status(200).end();
   })
 }); //end of put
+
+// Export router
+module.exports = router;
