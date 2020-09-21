@@ -1,10 +1,26 @@
 $(function() {
+  //delete button listener
+  $(".delete").on("click", function(event) {
+    var id = $(this).data("id");
+
+    $.ajax("/api/burgers/" + id, {
+      type: "DELETE",
+    }).then(
+      function() {
+        console.log("burger "+id+" has been deleted");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+  //devour button listener
   $(".devoure").on("click", function(event) {
     var id = $(this).data("id");
   
     var devoured = {devoured: true};
 
-    // Send the PUT request.
+    // Send the PUT request
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
       data: devoured
@@ -17,6 +33,7 @@ $(function() {
     );
   });
 
+  //form submit listener
   $(".create-form").on("submit", function(event) {
     console.log("Entered submit Click")
     // Make sure to preventDefault on a submit event.
@@ -36,4 +53,6 @@ $(function() {
       }
     );
   });
+
+
 });

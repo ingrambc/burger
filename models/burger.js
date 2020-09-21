@@ -20,6 +20,13 @@ var burger = {
     })
   },//end of updateOne
 
+  deleteOne: function(cond, cb){
+  console.log("entered burger.deleteOne");
+    orm.deleteOne("burgers", cond, function(res){
+      cb(res)
+    });
+  }// end deleteOne
+
 }//end of burger
 
 //Export burger

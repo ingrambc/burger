@@ -25,9 +25,19 @@ router.put("/api/burgers/:id", function(req, res){
   burger.updateOne("devoured", "true", cond, function(result){
     if(result.changedRows === 0)
       return res.status(404).end();
-    res.status(200).end();
+    res.json(result);
   })
 }); //end of put
+
+router.delete("/api/burgers/:id", function(req, res){
+  var cond = "id = " + req.params.id;
+
+  burger.deleteOne(cond, function(result){
+    if(result.affectedRows === 0)
+      return res.status(404).end();
+    res.json(result);
+  });
+});
 
 // Export router
 module.exports = router;

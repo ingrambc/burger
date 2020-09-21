@@ -6,13 +6,14 @@
 
   <div class="row">
     <div class="column">
+      <h2>Burgers Ready to Devoure</h2>
       <ul>
         {{#each burgers}}
           {{#unless devoured}}
             <li>
               {{name}}
               <button class="devoure" data-id="{{id}}">Devoure</button>
-            </li>>
+            </li>
           {{/unless}}
         {{/each}}
       </ul>
@@ -20,11 +21,13 @@
 
     <div class="column">
       <ul>
+        <h2>Burgers that have been devoured</h2>
         {{#each burgers}}
           {{#if devoured}}
             <li>
               {{name}}
-            </li>>
+              <button class="delete" data-id="{{id}}">Delete</button>
+            </li>
           {{/if}}
         {{/each}}
       </ul>
@@ -32,9 +35,8 @@
   </div>  
 
   <div>
-    <h2>Add a Burger</h2>
-
     <form class="create-form">
+      <h2>Add a Burger</h2>
       <div class="form_group">
         <label for="burgName">Name of Burger:</label>
         <input type="text" id="burgName" name="name">

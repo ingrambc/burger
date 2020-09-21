@@ -1,5 +1,6 @@
 // Import MySQL connection.
 var connection = require("../config/connection.js");
+const { deleteOne } = require("../models/burger.js");
 
 //helper functions
 
@@ -30,7 +31,16 @@ var orm = {
       if(err) throw err;
       cb(result);
     })
-  }//end updateOne
+  },//end updateOne
+
+  deleteOne: function(tableName, cond, cb){
+  console.log("Entered ORM deleteOne");
+    let queryStr = "DELETE FROM "+tableName+" WHERE "+cond+";";
+    connection.query(queryStr, function(err, result){
+      if(err) throw err;
+      cb(result);
+    })
+  },//end of deleteOne
   
 }//end orm
 
